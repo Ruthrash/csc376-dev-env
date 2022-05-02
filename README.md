@@ -1,6 +1,7 @@
 # Melodic mybot_ws on docker
 
-Forked from : [richardw05/mybot_ws](https://github.com/richardw05/mybot_ws)
+
+Modified from : [mrkoz/mybot_ws](https://github.com/mrkoz/mybot_ws)
 
 ## WTF? (What's This For?)
 
