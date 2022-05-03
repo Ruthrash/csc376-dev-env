@@ -120,7 +120,8 @@ After running the docker container using ```make up``` command, run the vnc view
         ```
    
 
-
+## Note
+* All changes made in the local machine in the **csc376_root** directory will be reflected inside the docker container. So make use of this directory for code development.
 
 ## References for docker environment
 
