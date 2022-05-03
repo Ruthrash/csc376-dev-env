@@ -1,5 +1,4 @@
-# Melodic mybot_ws on docker
-
+# Gazebo development enviroment in Docker for CSC 376
 
 Modified from : [mrkoz/mybot_ws](https://github.com/mrkoz/mybot_ws)
 
@@ -9,7 +8,7 @@ This repo contains a docker container that hosts a development environment for C
 
 ## Dependancies 
 
-In order to run this docker container the host machines (Ubuntu/OSX/Windows) should have 
+In order to run this docker container the host machines (Ubuntu/macOS/Windows) should have 
 * docker 
 * docker-compose
 * A vnc viewer (tested tigervnc)
@@ -21,27 +20,49 @@ In order to run this docker container the host machines (Ubuntu/OSX/Windows) sho
 ### Install dependancies
 
 * Ubuntu 
+    * Check CMake installation or else install it 
+    ```
+    cmake --version 
+    # if this throws a cmake not found error 
+    sudo apt-get install cmake 
+    ```
     * Install docker 
     ```
-    sudo apt install docker.io
+    sudo apt-get install docker.io
     sudo docker run hello-world # tests docker installation
     ```
     * Install docker-compose
     ```
-    sudo apt install docker-compose
+    sudo apt-get install docker-compose
     ```
     * Install a vncviewer eg: tigervnc 
     ```
     sudo apt-get install tigervnc-viewer
     ```
-* OSX
-    * MAC installation instructions comes here 
+
+* macOS
+    * Install Cmake 
+    ```
+    brew install cmake 
+    ```
+    * Docker installation-
+    
+        Follow instructions [here](https://runnable.com/docker/install-docker-on-macos) to install docker on Mac. To verify installation run the commands below and you should not get any error.  
+    ```
+    docker --version 
+    docker-machine --version 
+    docker-compose --version
+    ```
 
 * Windows 
     * Windows installation instructions comes here
 
 
-### Build and run docker container 
+
+
+## Usage
+
+### Build and run docker container and VNC server 
 
 * Ubuntu 
     * run, 
@@ -49,22 +70,35 @@ In order to run this docker container the host machines (Ubuntu/OSX/Windows) sho
     cd  <path to this repo>/csc376-dev-env
     sudo make up
     ```
-* OSX 
-    * MAC installation comes here 
+* macOS 
+    * run, 
+    ```
+    cd  <path to this repo>/csc376-dev-env
+    make up
+    ```
 * Windows 
     * windows installation comes here  
 
-## Usage
+### Run VNC client to access dev environment 
+After running the docker container using ```make up``` command, run the vnc viewer to access the development environment desktop. In a new terminal run, 
 
 * Ubuntu 
-    1. After running the docker container using ```make up``` command, run the vnc viewer to access the development environment desktop. In a new terminal run, 
     ```
     vncviewer 127.0.0.1:5900
     ```
     The password is **ubuntu** 
+* macOS 
+    ```
+    open vnc://127.0.0.1:5900
+    ```
 
-    2. one can access the terminal by pressing the home button(button left corner in VNC desktop) -> System Tools -> LXTerminal
-    3. To test build environment 
+
+### Once VNC client is running and you can access the desktop 
+
+* (Ubuntu/macOS/Windows) Common Instructions
+    1. one can access the terminal by pressing the home button(button left corner in VNC desktop) -> System Tools -> LXTerminal
+    
+    2. To test build environment 
 
     *   Inside vnc,  
         ```
@@ -76,6 +110,7 @@ In order to run this docker container the host machines (Ubuntu/OSX/Windows) sho
         ```
     * run simulation of the robot and its world in gazebo,
         ```
+        cd /home/ubuntu/csc376
         gazebo csc376_assigment.world --verbose
         ```
     * **Open a new terminal** and run your code,
