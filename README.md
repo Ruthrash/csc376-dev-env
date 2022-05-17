@@ -111,12 +111,12 @@ After running the docker container using ```make up``` command, run the vnc view
     * run simulation of the robot and its world in gazebo,
         ```
         cd /home/ubuntu/csc376
-        gazebo csc376_assigment.world --verbose
+        gazebo csc376_assignment.world --verbose
         ```
     * **Open a new terminal** and run your code,
         ```
         cd /home/ubuntu/csc376/build/
-        ./csc376-assigment
+        ./csc376-assignment
         ```
    
 

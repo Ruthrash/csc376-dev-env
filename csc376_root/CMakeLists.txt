@@ -21,6 +21,6 @@ add_library(panda_control_plugin SHARED src/panda_control_plugin.cpp)
 target_link_libraries(panda_control_plugin ${GAZEBO_LIBRARIES} Eigen3::Eigen)
 
 #Build the executable
-add_executable(csc376-assigment main.cpp include/gazebocontroller.h src/gazebocontroller.cpp include/pandarobotmodel.h src/pandarobotmodel.cpp)
-target_link_libraries(csc376-assigment ${GAZEBO_LIBRARIES} Eigen3::Eigen)
+add_executable(csc376-assignment main.cpp include/gazebocontroller.h src/gazebocontroller.cpp include/pandarobotmodel.h src/pandarobotmodel.cpp)
+target_link_libraries(csc376-assignment ${GAZEBO_LIBRARIES} Eigen3::Eigen)
 
